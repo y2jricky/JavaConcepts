@@ -1,8 +1,12 @@
-package com.studentmanagement.oops;
+package com.oops.concepts;
 
 import java.util.Objects;
 
-public class Student extends Person {
+public class Student {
+	private String name;
+	private int age;
+	private String address;
+	private String contactNumber;
 	private int rollNumber;
 	private double marksObtainedInEnglish;
 	private double marksObtainedInMaths;
@@ -10,19 +14,20 @@ public class Student extends Person {
 	private String grade;
 	private double totalMarks;
 	private double percentage;
-	private static int studentCount=0;
 
 	public Student(String name, int age, String address, String contactNumber, int rollNumber,
 			double marksObtainedInEnglish, double marksObtainedInMaths, double marksObtainedInScience) {
-		super(name, age, address, contactNumber);
 		if (validateAge(age) && validateRollNumber(rollNumber) && validateMarks(marksObtainedInEnglish)
 				&& validateMarks(marksObtainedInMaths) && validateMarks(marksObtainedInScience)
 				&& validateAddress(address) && validateContactNumber(contactNumber)) {
+			this.name = name;
+			this.age = age;
+			this.address = address;
+			this.contactNumber = contactNumber;
 			this.rollNumber = rollNumber;
 			this.marksObtainedInEnglish = marksObtainedInEnglish;
 			this.marksObtainedInMaths = marksObtainedInMaths;
 			this.marksObtainedInScience = marksObtainedInScience;
-			studentCount=studentCount+1;
 		}
 	}
 
@@ -140,7 +145,19 @@ public class Student extends Person {
 		if (percentage == 0) {
 			grade = "can not be calculated";
 		} else {
-			grade = GradePolicy.calculateGrade(percentage);
+			if (percentage >= 95) {
+				grade = "A+";
+			} else if (percentage >= 90) {
+				grade = "A";
+			} else if (percentage >= 80) {
+				grade = "B";
+			} else if (percentage >= 70) {
+				grade = "C";
+			} else if (percentage >= 40) {
+				grade = "D";
+			} else {
+				grade = "F";
+			}
 		}
 
 	}
@@ -191,97 +208,21 @@ public class Student extends Person {
 		}
 
 	}
-
+	
 	public void displayStudentInfo() {
 		System.out.println("----------Student Information-----------");
-		System.out.println("Name of the Student : " + name);
-		System.out.println("Age of the Student : " + age);
-		System.out.println("Contact Number of the Student : " + contactNumber);
-		System.out.println("Address of the Student : " + address);
-		System.out.println("Rollnumber of the Student : " + rollNumber);
-		System.out.println("Marks in English for the Student : " + marksObtainedInEnglish);
-		System.out.println("Marks in Maths for the Student : " + marksObtainedInMaths);
-		System.out.println("Marks in Science for the Student : " + marksObtainedInScience);
+		System.out.println("Name of the Student : "+name);
+		System.out.println("Age of the Student : "+age);
+		System.out.println("Contact Number of the Student : "+contactNumber);
+		System.out.println("Address of the Student : "+address);
+		System.out.println("Marks in English for the Student : "+marksObtainedInEnglish);
+		System.out.println("Marks in Maths for the Student : "+marksObtainedInMaths);
+		System.out.println("Marks in Science for the Student : "+marksObtainedInScience);
 		System.out.println("**********************************");
-		System.out.println("Total Marks of the Student : " + totalMarks);
-		System.out.println("Total Percentage of the Student : " + percentage + "%");
-		System.out.println("Grade of the student : " + grade);
-
-	}
-	
-// This method will update both address and contact number
-	public boolean updateInformation(String newAddress, String newContactNumber) {
-		// Parent Approval
-		System.out.println("requesting parent approval");
-		boolean parentApprovalStatus = parentApproval();
-
-		if (parentApprovalStatus) {
-			// then update person address with new address and contact number with new
-			// contact number
-
-			if (super.updateInformation(newAddress, newContactNumber)) {
-				System.out.println("Notifying the parent.......");
-				return true;
-			} else {
-				System.err.println("No approval from parent..........");
-				return false;
-
-			}
-		}
-		return false;
-
-	}
-	// This method will only update the address
-	public boolean updateInformation(String newAddress) {
-		// Parent Approval
-		System.out.println("requesting parent approval");
-		boolean parentApprovalStatus = parentApproval();
-
-		if (parentApprovalStatus) {
-			// then update person address with new address and contact number with new
-			// contact number
-
-			if (super.updateInformation(newAddress)) {
-				System.out.println("Notifying the parent.......");
-				return true;
-			} else {
-				System.err.println("No approval from parent..........");
-				return false;
-
-			}
-		}
-		return false;
-
-	}
-	// This method will only update the contactnumber
-	public boolean updateInformation(String newContactNumber, boolean update) {
-		// Parent Approval
-		System.out.println("requesting parent approval");
-		boolean parentApprovalStatus = parentApproval();
-
-		if (parentApprovalStatus) {
-			// then update person address with new address and contact number with new
-			// contact number
-
-			if (super.updateInformation(newContactNumber, update)) {
-				System.out.println("Notifying the parent.......");
-				return true;
-			} else {
-				System.err.println("No approval from parent..........");
-				return false;
-
-			}
-		}
-		return false;
-
-	}
-
-	private boolean parentApproval() {
-		return true;
-	}
-	
-	public static int getTotalStudentCount() {
-		return studentCount;
+		System.out.println("Total Marks of the Student : "+totalMarks);
+		System.out.println("Total Percentage of the Student : "+percentage+"%");
+		System.out.println("Grade of the student : "+grade);
+		
 	}
 
 	@Override

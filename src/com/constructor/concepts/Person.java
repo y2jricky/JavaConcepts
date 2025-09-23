@@ -2,8 +2,26 @@ package com.constructor.concepts;
 
 public class Person {
 	private String name;
-	private long aadharID;
-	private char gender;
+	private int id;
+
+	public Person() {
+		System.out.println("This is my default constrcutor");
+
+	}
+
+	public Person(String name, int id) {
+		this();// constructor chaining
+		System.out.println("This is my parametrized constrcutor");
+		this.name = name;
+		this.id = id;
+
+	}
+
+	public Person(Person other) {
+		System.out.println("This is my copy constrcutor");
+		this.name = other.name;
+		this.id = other.id;
+	}
 
 	public String getName() {
 		return name;
@@ -13,35 +31,12 @@ public class Person {
 		this.name = name;
 	}
 
-	public long getAadharID() {
-		return aadharID;
+	public int getId() {
+		return id;
 	}
 
-	public void setAadharID(long aadharID) {
-		this.aadharID = aadharID;
-	}
-
-	public char getGender() {
-		return gender;
-	}
-
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-
-	public Person() {
-		System.out.println("this is my default constructor");
-	}
-
-	public Person(String name) {
-		this.name = name;
-
-	}
-
-	public Person(String name, long aadharID, char gender) {
-		this.name = name;
-		this.aadharID = aadharID;
-		this.gender = gender;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

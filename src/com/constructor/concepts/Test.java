@@ -2,12 +2,16 @@ package com.constructor.concepts;
 
 public class Test {
 	public static void main(String[] args) {
-		Person p = new Person();
-		p.setAadharID(2434234);
-		p.setGender('M');
+		Person p1 = new Person();
+		p1.setName("Raj");
+		p1.setId(20);
 		
-		Person p2 = new Person("Suman");
-		System.out.println(p2.getName());
+		Person p = new Person("Ricky", 20);
+		
+		Person copyPerson = new Person(p);
+		
+		
+		
 		
 	}
 
