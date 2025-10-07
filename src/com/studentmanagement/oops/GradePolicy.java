@@ -13,7 +13,7 @@ public class GradePolicy {
 	private static int passingMarks;
 
 	static {
-		System.out.println("Grade policy loade in system");
+		System.out.println("Grade policy loaded in the system");
 		aPlus = 95;
 		aGrade = 90;
 		bPlus = 85;

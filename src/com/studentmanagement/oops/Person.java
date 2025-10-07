@@ -7,7 +7,7 @@ public class Person {
 	protected int age;
 	protected String address;
 	protected String contactNumber;
-	private static int personCounter=0;
+	private static int personCounter = 0;
 
 	public Person(String name, int age, String address, String contactNumber) {
 		super();
@@ -16,7 +16,7 @@ public class Person {
 			this.age = age;
 			this.address = address;
 			this.contactNumber = contactNumber;
-			personCounter=personCounter+1;
+			personCounter = personCounter + 1;// percsonCounter++
 		}
 	}
 
@@ -86,7 +86,7 @@ public class Person {
 		}
 
 	}
-	
+
 	protected boolean updateInformation(String newAddress) {
 		if (validateAddress(newAddress)) {
 			this.address = newAddress;
@@ -97,8 +97,9 @@ public class Person {
 		}
 
 	}
-	
-	//Here boolean parameter has no significance, only to achieve overloading we are using it
+
+	// Here boolean parameter has no significance, only to achieve overloading we
+	// are using it
 	protected boolean updateInformation(String newContactNumber, boolean update) {
 		if (validateContactNumber(newContactNumber)) {
 			this.contactNumber = newContactNumber;
@@ -109,7 +110,7 @@ public class Person {
 		}
 
 	}
-	
+
 	public static int getTotalPersonCount() {
 		return personCounter;
 	}

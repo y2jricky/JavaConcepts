@@ -7,7 +7,7 @@ public class Teacher extends Person {
 	private String subject;
 	private int yearsOfExperience;
 	private double salary;
-	private static int teacherCount=0;
+	private static int teacherCount = 0;
 
 	private static final double BASE_SALARY = 30000;
 	private static final double EXPERIENCE_BONUS = 2000;
@@ -20,7 +20,7 @@ public class Teacher extends Person {
 			this.empID = empID;
 			this.subject = subject;
 			this.yearsOfExperience = yearsOfExperience;
-			teacherCount=teacherCount+1;
+			teacherCount = teacherCount + 1;
 			calculateSalary();
 		}
 	}
@@ -191,7 +191,7 @@ public class Teacher extends Person {
 		return false;
 
 	}
-	
+
 	public boolean updateInformation(String newAddress) {
 		// Parent Approval
 		System.out.println("Requesting HR approval");
@@ -213,7 +213,7 @@ public class Teacher extends Person {
 		return false;
 
 	}
-	
+
 	public boolean updateInformation(String newContactNumber, boolean update) {
 		// Parent Approval
 		System.out.println("Requesting HR approval");
@@ -240,7 +240,7 @@ public class Teacher extends Person {
 		System.out.println("HR Approved the updation");
 		return true;
 	}
-	
+
 	public static int getTotalTeacherCount() {
 		return teacherCount;
 	}
